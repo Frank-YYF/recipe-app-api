@@ -3,12 +3,14 @@ LABEL maintainer="dlxz.com"
 
 ENV PYTHONBUFFERED 1
 
+
+
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./app /app
 WORKDIR /app
 
-EXPOSE 8000
+EXPOSE 7100
 
 ARG DEV=false
 RUN python -m venv /py && \
@@ -28,5 +30,6 @@ RUN python -m venv /py && \
   django-user
 
 ENV PATH="/py/bin:$PATH"
+
 
 USER django-user
